@@ -1,0 +1,224 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0",
+        "title": "Portafoleo profesional",
+        "description": "APP Rest tipo CRUD en NodeJs usando mongoDB",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    }
+    ,"servers": [
+        
+        {
+            "url": "/api/",
+            "description": "API montado en EC2 de AWS utilizando express"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Productos",
+            "description": "API para administrar los productos de una compañia"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/producto": {
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Obtiene todos los productos",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Productos"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Crea un nuevo producto",
+                "requestBody": {
+                    "description": "Objeto producto",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Product"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Fallo,  no existe el metodo."
+                    }
+                }
+            }
+        },
+        "/producto/{id}": {
+            "parameters": [
+                {
+                    "name": "id"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Obtiene un producto por ID",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": " producto por id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Product"
+                        }
+                    },
+                    "404": {
+                        "description": "Fallo,  formato de la peticion incorrecta"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualiza un producto por ID",
+                "tags": [
+                    "Productos"
+                ],
+                "requestBody": {
+                    "description": "Objeto Producto",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Product"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "Se ingresan los nuevos valores a actualizar",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Productos"
+                        }
+                    },
+                    "400": {
+                        "description": "Fallo, formato de la peticion incorrecta."
+                    },
+                    "404": {
+                        "description": "Fallo ..Servicio no encontrado"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Borra un producto mediante el ID",
+                "tags": [
+                    "Productos"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "Borra un producto por id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "404": {
+                        "description": "Fallo,  no existe el metodo."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "id": {
+            "properties": {
+                "uuid": {
+                    "type": "string"
+                }
+            }
+        },
+        
+		"Product": {
+            "type": "object",
+            "properties": {
+                "nombre": {
+                    "type": "string"
+                },
+                "precio": {
+                    "type": "integer"
+                },
+                "categoria": {
+                     "type": "string"
+                },
+                "descripcion": {
+                    "type": "string"
+                }
+            }
+        },
+		"Productos": {
+            "type": "object",
+            "properties": {
+                "productos": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/Product"
+                    }
+                }
+            }
+        }
+		
+    }
+}
