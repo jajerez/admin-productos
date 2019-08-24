@@ -8,8 +8,8 @@ administrar productos a traves de los lengajes nodejs y mongodb.
 
 # INSTRUCCIONES DEL DEPLOY
  
-$ npm install express --save
-$ npm install express --save
+$npm install express --save
+$npm install express --save
 $ npm i -S body-parser
 $ npm i -D nodemon
 $ npm i -S mongoose
