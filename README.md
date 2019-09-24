@@ -11,7 +11,7 @@ Administrar productos a traves de los lenguajes NODEjs y la base de datos mongod
 Ejecutar los siguientes comando para instalar las dependencias necesarias para el proyecto
 
 ```sh
-$npm i express body-parser
+$npm i express body-parser swagger
 ``` 
  
 ```sh
