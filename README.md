@@ -1,7 +1,7 @@
-# Administrador-productos #
+# Administrador de productos #
 
 ### Descripción ###
-administrar productos a traves de los lenguajes NODEjs y mongodb.
+Administrar productos a traves de los lenguajes NODEjs y la base de datos mongodb.
 
 ### Dependencias: ### 
 * [NodeJs](https://nodejs.org/es/)
