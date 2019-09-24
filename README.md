@@ -1,15 +1,18 @@
-# admin-productos
-administrar productos a traves de los lengajes nodejs y mongodb.
+# admin-productos #
 
-# Prerequisitos
-1.- Tene intalado nodejs
-2.- Tener algun editor de contenido
+### Descripción ###
+administrar productos a traves de los lenguajes NODEjs y mongodb.
+
+##### Dependencias: 
+* [NodeJs](https://nodejs.org/es/)
 
 
-# INSTRUCCIONES DEL DEPLOY
+##### Instrucciones de instalacion:
+
+```sh
+$npm i express body-parser
+``` 
  
-$npm install express --save
-$npm install express --save
-$ npm i -S body-parser
+```sh
 $ npm i -D nodemon
-$ npm i -S mongoose
+``` 
