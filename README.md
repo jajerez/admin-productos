@@ -16,4 +16,9 @@ $npm i express body-parser swagger
  
 ```sh
 $ npm i -D nodemon
+```
+### Ejecución: ###
+Para ejecutar el servidor
+```sh
+$ npm start
 ``` 
